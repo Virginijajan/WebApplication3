@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -14,14 +13,17 @@ using WebApplication3.Repositories;
 
 namespace WebApplication3.Controllers
 {
+
     [ApiController]
     [Route("[controller]")]
-    public class FruitController : GenericControllerBase<FruitDto, Fruit>
-    {
-        public FruitController(DataContext context, IMapper mapper, GenericRepository<Fruit> repository) : base(repository, mapper)
+
+        public class ShopController : GenericControllerBase<ShopDto, Shop>
+
         {
-           
-        }
-       
-    }
-}
+            public ShopController(IMapper mapper, GenericRepository<Shop> repository) : base(repository, mapper)
+            {
+
+            }
+        }  
+ }
+

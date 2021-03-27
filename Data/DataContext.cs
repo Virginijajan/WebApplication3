@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApplication3.Models;
+using WebApplication3.Entities;
 
 namespace WebApplication3.Data
 {
@@ -20,6 +20,13 @@ namespace WebApplication3.Data
 
         public DbSet<Dishware> Dishwares { get; set; }
 
+        public DbSet<Shop> Shops { get; set; }
 
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+        }
     }
 }

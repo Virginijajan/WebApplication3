@@ -12,7 +12,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication3.Controllers.Base;
 using WebApplication3.Data;
+using WebApplication3.Repositories;
 
 namespace WebApplication3
 {
@@ -31,7 +33,10 @@ namespace WebApplication3
             var defaultConnectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<DataContext>(d => d.UseSqlServer(defaultConnectionString));
             //services.AddSingleton<DataServices>();
+            services.AddAutoMapper(typeof(Startup));
             services.AddControllers();
+            services.AddScoped(typeof(GenericRepository<>));
+            services.AddScoped(typeof(GenericControllerBase<,>));
 
             services.AddSwaggerGen();
         }

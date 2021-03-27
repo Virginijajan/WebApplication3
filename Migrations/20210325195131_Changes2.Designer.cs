@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication3.Data;
 
 namespace WebApplication3.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210325195131_Changes2")]
+    partial class Changes2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,6 +26,9 @@ namespace WebApplication3.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -44,6 +49,9 @@ namespace WebApplication3.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -80,6 +88,9 @@ namespace WebApplication3.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -96,7 +107,7 @@ namespace WebApplication3.Migrations
             modelBuilder.Entity("WebApplication3.Entities.Dishware", b =>
                 {
                     b.HasOne("WebApplication3.Entities.Shop", "shop")
-                        .WithMany("Dishwares")
+                        .WithMany()
                         .HasForeignKey("ShopId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -107,7 +118,7 @@ namespace WebApplication3.Migrations
             modelBuilder.Entity("WebApplication3.Entities.Fruit", b =>
                 {
                     b.HasOne("WebApplication3.Entities.Shop", "shop")
-                        .WithMany("Fruits")
+                        .WithMany()
                         .HasForeignKey("ShopId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -118,21 +129,12 @@ namespace WebApplication3.Migrations
             modelBuilder.Entity("WebApplication3.Entities.Vegetable", b =>
                 {
                     b.HasOne("WebApplication3.Entities.Shop", "shop")
-                        .WithMany("Vegetables")
+                        .WithMany()
                         .HasForeignKey("ShopId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("shop");
-                });
-
-            modelBuilder.Entity("WebApplication3.Entities.Shop", b =>
-                {
-                    b.Navigation("Dishwares");
-
-                    b.Navigation("Fruits");
-
-                    b.Navigation("Vegetables");
                 });
 #pragma warning restore 612, 618
         }
