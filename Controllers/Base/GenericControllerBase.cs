@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using WebApplication3.Dtos.Base;
 using WebApplication3.Entities.Base;
 using WebApplication3.Repositories;
+using WebApplication3.Services;
 
 namespace WebApplication3.Controllers.Base
 {
@@ -14,6 +15,7 @@ namespace WebApplication3.Controllers.Base
     {
         private readonly GenericRepository<TEntity> _repository;
         private readonly IMapper _mapper;
+      
 
         public GenericControllerBase( GenericRepository<TEntity> repository, IMapper mapper)
         {
@@ -25,7 +27,7 @@ namespace WebApplication3.Controllers.Base
 
 
         [HttpGet]
-        public async Task<List<TDto>> GetAll()
+        public async virtual Task<List<TDto>> GetAll()
         {
             var entities = await _repository.GetAll();
             return _mapper.Map<List<TDto>>(entities);
@@ -33,7 +35,7 @@ namespace WebApplication3.Controllers.Base
 
 
         [HttpGet("{id}")]
-        public TDto GetById(int id)
+        public virtual TDto GetById(int id)
         {
             var entity = _repository.FindById(id);
             return _mapper.Map<TDto>(entity);

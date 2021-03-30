@@ -22,7 +22,7 @@ namespace WebApplication3.Data
 
         public DbSet<Shop> Shops { get; set; }
 
-
+      
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

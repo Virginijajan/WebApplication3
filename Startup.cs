@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using WebApplication3.Controllers.Base;
 using WebApplication3.Data;
 using WebApplication3.Repositories;
+using WebApplication3.Services;
 
 namespace WebApplication3
 {
@@ -37,6 +38,10 @@ namespace WebApplication3
             services.AddControllers();
             services.AddScoped(typeof(GenericRepository<>));
             services.AddScoped(typeof(GenericControllerBase<,>));
+            services.AddScoped<DiscountService>();
+            services.AddScoped<AmountService>();
+            services.AddScoped<PriceCalculationService>();
+
 
             services.AddSwaggerGen();
         }

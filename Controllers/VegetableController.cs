@@ -17,7 +17,7 @@ namespace WebApplication3.Controllers
     [Route("[controller]")]
     public class VegetableController : GenericControllerBase<VegetableDto, Vegetable>
     {    
-        public VegetableController(DataContext context, IMapper mapper, GenericRepository<Vegetable> repository) : base(repository, mapper)
+        public VegetableController(IMapper mapper, GenericRepository<Vegetable> repository) : base(repository, mapper)
         {
            
         }

@@ -43,14 +43,16 @@ namespace WebApplication3.Repositories
 
         public async Task Upsert(T entity)
         {
-         
+          
             if (entity.Id==0)
             {
-                _context.Update(entity);
-            }
-            else
-            {
                 _context.Add(entity);
+               
+            }
+            else 
+
+            {
+                _context.Update(entity);
             }
             await _context.SaveChangesAsync();
         }

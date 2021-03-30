@@ -18,7 +18,7 @@ namespace WebApplication3.Controllers
     [Route("[controller]")]
     public class FruitController : GenericControllerBase<FruitDto, Fruit>
     {
-        public FruitController(DataContext context, IMapper mapper, GenericRepository<Fruit> repository) : base(repository, mapper)
+        public FruitController(IMapper mapper, GenericRepository<Fruit> repository) : base(repository, mapper)
         {
            
         }
