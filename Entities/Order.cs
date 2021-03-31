@@ -6,17 +6,15 @@ using WebApplication3.Entities.Base;
 
 namespace WebApplication3.Entities
 {
-    public class Dishware : Entity
+    public class Order:Entity
     {
-        public Shop shop {get; set;}
+        public int ItemId { get; set; }
 
-        public int ShopId { get; set; }
-
-        public decimal Price { get; set; }
+        public ShopItem Item { get; set; }
 
         public int Quantity { get; set; }
 
-
+      
 
     }
 }

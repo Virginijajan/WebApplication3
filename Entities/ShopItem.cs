@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApplication3.Entities.Base;
 
-namespace WebApplication3.Entities
+namespace WebApplication3.Entities.Base
 {
-    public class Vegetable: Entity
+    public class ShopItem:Entity
     {
-        public Shop shop { get; set; }
-        public int ShopId { get; set; }
+        public string Category { get; set; }
 
         public decimal Price { get; set; }
+
         public int Quantity { get; set; }
+
+        public int ShopId { get; set; }
     }
 }

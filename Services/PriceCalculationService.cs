@@ -16,7 +16,7 @@ namespace WebApplication3.Services
             _discountService = discountService;
         }
 
-        public DishwareDto ApplyDiscount(DishwareDto item)
+        public OrderDto ApplyDiscount(OrderDto item)
         {
             if (item.Price.HasValue)
             {

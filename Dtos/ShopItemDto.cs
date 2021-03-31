@@ -6,13 +6,14 @@ using WebApplication3.Dtos.Base;
 
 namespace WebApplication3.Dtos
 {
-    public class VegetableDto:DtoObject
+    public class ShopItemDto:DtoObject
     {
-        public int ShopId { get; set; }
+        public string Category { get; set; }
+
         public decimal? Price { get; set; }
         public int Quantity { get; set; }
-        public decimal Discount { get; set; }
-        public decimal Amount { get; set; }
+        public int ShopId { get; set; }
+
 
     }
 }

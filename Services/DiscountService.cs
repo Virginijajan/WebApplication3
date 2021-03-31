@@ -11,7 +11,7 @@ namespace WebApplication3.Services
         //private const int discountPercent = 10;
         decimal discount;
 
-        public decimal CalculateDiscount(DishwareDto item)
+        public decimal CalculateDiscount(OrderDto item)
         {
             if (item.Quantity > 5)
             {

@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,13 +38,17 @@ namespace WebApplication3
             services.AddAutoMapper(typeof(Startup));
             services.AddControllers();
             services.AddScoped(typeof(GenericRepository<>));
+            services.AddScoped<OrderRepository>();
             services.AddScoped(typeof(GenericControllerBase<,>));
             services.AddScoped<DiscountService>();
             services.AddScoped<AmountService>();
             services.AddScoped<PriceCalculationService>();
 
 
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApplication1", Version = "v1" });
+            });
         }
 
         private void defaultConnectionString(SqlServerDbContextOptionsBuilder obj)

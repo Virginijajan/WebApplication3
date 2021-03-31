@@ -16,19 +16,19 @@ namespace WebApplication3.Repositories
         private readonly DataContext _context;
        
 
-        public GenericRepository(DataContext context, IMapper mapper)
+        public GenericRepository(DataContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context)); 
            
         }
 
-        public async Task <List<T>> GetAll()
+        public virtual async Task <List<T>> GetAll()
         {
             return await _context.Set<T>().ToListAsync();
         }
 
 
-        public T FindById(int id)
+        public virtual T FindById(int id)
         {
             var entity = _context.Set<T>().FirstOrDefault(e => e.Id == id);
 

@@ -43,7 +43,7 @@ namespace WebApplication3.Controllers.Base
 
 
         [HttpPost]
-        public async Task Upsert(TDto dto)
+        public async virtual Task Upsert(TDto dto)
         {
             var entity = _mapper.Map<TEntity>(dto);
             await _repository.Upsert(entity);
@@ -52,7 +52,7 @@ namespace WebApplication3.Controllers.Base
 
 
         [HttpDelete("{id}")]
-        public async Task Delete(int id)
+        public async virtual Task Delete(int id)
         {
             await _repository.Delete(id);
         }

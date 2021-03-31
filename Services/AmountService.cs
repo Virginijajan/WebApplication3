@@ -14,14 +14,14 @@ namespace WebApplication3.Services
         {
             _discountService = discountService;
         }
-        public DishwareDto CalculateAmount(DishwareDto item)
+        public decimal CalculateAmount(OrderDto item)
         {
            
 
 
-            item.Amount = (item.Price.Value- _discountService.CalculateDiscount(item)) * item.Quantity;
+            decimal amount = (item.Price.Value- _discountService.CalculateDiscount(item)) * item.Quantity;
 
-            return item;
+            return amount;
         }
     }
 }

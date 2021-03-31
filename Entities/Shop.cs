@@ -9,9 +9,8 @@ namespace WebApplication3.Entities
 {
     public class Shop: Entity
     {
-        public List<Dishware> Dishwares { get; set; }
-        public List<Vegetable> Vegetables { get; set; }
-        public List<Fruit> Fruits { get; set; }
+        public List<ShopItem> ShopItems { get; set; }
+       
 
     }
 }

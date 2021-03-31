@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApplication3.Dtos;
 using WebApplication3.Entities;
+using WebApplication3.Entities.Base;
 
 namespace WebApplication3.Mappings
 {
@@ -12,10 +13,10 @@ namespace WebApplication3.Mappings
     {
         public MappingsProfile()
         {
-            CreateMap<DishwareDto, Dishware>().ReverseMap();
-            CreateMap<VegetableDto, Vegetable>().ReverseMap();
-            CreateMap<FruitDto, Fruit>().ReverseMap();
+          
             CreateMap<ShopDto, Shop>().ReverseMap();
+            CreateMap<OrderDto, Order>().ReverseMap();
+            CreateMap<ShopItemDto, ShopItem>().ReverseMap();
         }
     }
 }
