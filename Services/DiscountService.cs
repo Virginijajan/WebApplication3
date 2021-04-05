@@ -8,10 +8,10 @@ namespace WebApplication3.Services
 {
     public class DiscountService
     {
-        //private const int discountPercent = 10;
+       
         decimal discount;
 
-        public decimal CalculateDiscount(OrderDto item)
+        public decimal CalculateDiscount(OrderItemDto item)
         {
             if (item.Quantity > 5)
             {

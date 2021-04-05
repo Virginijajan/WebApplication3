@@ -7,10 +7,10 @@ using WebApplication3.Entities.Base;
 
 namespace WebApplication3.Entities
 {
-    public class Shop: Entity
+    public class Shop : Entity
     {
-        public List<ShopItem> ShopItems { get; set; }
-       
+        public string Name { get; set; }
+        public List<ShopItem>ShopItems{get;set;}
 
     }
 }

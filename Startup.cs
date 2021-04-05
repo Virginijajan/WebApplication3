@@ -42,12 +42,12 @@ namespace WebApplication3
             services.AddScoped(typeof(GenericControllerBase<,>));
             services.AddScoped<DiscountService>();
             services.AddScoped<AmountService>();
-            services.AddScoped<PriceCalculationService>();
+            
 
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApplication1", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApplication3", Version = "v1" });
             });
         }
 
@@ -68,7 +68,7 @@ namespace WebApplication3
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApplication3 v1");
             });
 
             app.UseHttpsRedirection();

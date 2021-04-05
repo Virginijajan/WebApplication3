@@ -24,7 +24,15 @@ namespace WebApplication3.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Shop>()
+                .HasMany(s => s.ShopItems)
+                .WithOne()
+                .HasForeignKey(si => si.ShopId);
 
+            modelBuilder.Entity<ShopItem>()
+               .HasMany(s => s.Orders)
+               .WithOne()
+               .HasForeignKey(si => si.ItemId);
         }
     }
 }

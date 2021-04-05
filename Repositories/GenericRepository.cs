@@ -11,18 +11,18 @@ using WebApplication3.Entities.Base;
 
 namespace WebApplication3.Repositories
 {
-    public class GenericRepository<T> where T: Entity
+    public class  GenericRepository<T> where T : Entity
     {
         private readonly DataContext _context;
-       
+
 
         public GenericRepository(DataContext context)
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context)); 
-           
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+
         }
 
-        public virtual async Task <List<T>> GetAll()
+        public virtual async Task<List<T>> GetAll()
         {
             return await _context.Set<T>().ToListAsync();
         }
@@ -43,13 +43,13 @@ namespace WebApplication3.Repositories
 
         public async Task Upsert(T entity)
         {
-          
-            if (entity.Id==0)
+
+            if (entity.Id == 0)
             {
                 _context.Add(entity);
-               
+
             }
-            else 
+            else
 
             {
                 _context.Update(entity);
@@ -61,12 +61,12 @@ namespace WebApplication3.Repositories
         public async Task Delete(int id)
         {
 
-            var entity=_context.Set<T>().FirstOrDefault(e=>e.Id==id);
+            var entity = _context.Set<T>().FirstOrDefault(e => e.Id == id);
             if (entity != null)
             {
                 _context.Remove(entity);
             }
-           
+
             await _context.SaveChangesAsync();
         }
     }

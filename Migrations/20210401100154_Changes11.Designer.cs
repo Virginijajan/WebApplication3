@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication3.Data;
 
 namespace WebApplication3.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210401100154_Changes11")]
+    partial class Changes11
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,8 +44,6 @@ namespace WebApplication3.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ShopId");
 
                     b.ToTable("ShopItems");
                 });
@@ -78,8 +78,6 @@ namespace WebApplication3.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ItemId");
-
                     b.ToTable("Orders");
                 });
 
@@ -96,34 +94,6 @@ namespace WebApplication3.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Shops");
-                });
-
-            modelBuilder.Entity("WebApplication3.Entities.Base.ShopItem", b =>
-                {
-                    b.HasOne("WebApplication3.Entities.Shop", null)
-                        .WithMany("ShopItems")
-                        .HasForeignKey("ShopId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("WebApplication3.Entities.Order", b =>
-                {
-                    b.HasOne("WebApplication3.Entities.Base.ShopItem", null)
-                        .WithMany("Orders")
-                        .HasForeignKey("ItemId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("WebApplication3.Entities.Base.ShopItem", b =>
-                {
-                    b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("WebApplication3.Entities.Shop", b =>
-                {
-                    b.Navigation("ShopItems");
                 });
 #pragma warning restore 612, 618
         }

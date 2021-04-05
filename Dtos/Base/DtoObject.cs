@@ -8,8 +8,6 @@ namespace WebApplication3.Dtos.Base
     public class DtoObject
     {
         public int Id { get; set; }
-
-        public string Name { get; set; }
-      //  public int ShopId { get; set; }
+        
     }
 }

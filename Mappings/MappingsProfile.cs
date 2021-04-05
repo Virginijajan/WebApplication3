@@ -12,10 +12,9 @@ namespace WebApplication3.Mappings
     public class MappingsProfile:Profile
     {
         public MappingsProfile()
-        {
-          
+        {  
             CreateMap<ShopDto, Shop>().ReverseMap();
-            CreateMap<OrderDto, Order>().ReverseMap();
+            CreateMap<OrderItemDto, Order>().ReverseMap();
             CreateMap<ShopItemDto, ShopItem>().ReverseMap();
         }
     }

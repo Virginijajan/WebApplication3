@@ -14,10 +14,8 @@ namespace WebApplication3.Services
         {
             _discountService = discountService;
         }
-        public decimal CalculateAmount(OrderDto item)
+        public decimal CalculateAmount(OrderItemDto item)
         {
-           
-
 
             decimal amount = (item.Price.Value- _discountService.CalculateDiscount(item)) * item.Quantity;
 

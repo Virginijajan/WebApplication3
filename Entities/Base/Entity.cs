@@ -9,9 +9,7 @@ namespace WebApplication3.Entities.Base
     public class Entity
     {
         [Key]
-        public int Id { get; set; }
-
-        public string Name { get; set; }
+        public int Id { get; set; }  
 
     }
 }
